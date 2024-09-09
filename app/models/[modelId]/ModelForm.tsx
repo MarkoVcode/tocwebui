@@ -7,7 +7,9 @@ import { useValidationForData, useValidatorData } from '@/components/hooks/TocDa
 import { QueryClient } from '@tanstack/react-query';
 import { JsonForms } from '@jsonforms/react';
 import { vanillaCells, vanillaRenderers, JsonFormsStyleContext } from '@jsonforms/vanilla-renderers';
+import pack from '../../../package.json';
 
+console.log(pack.version);
 //https://codesandbox.io/p/sandbox/jsonforms-tailwind-forked-krq5nd?file=%2Fsrc%2FApp.tsx
 
 interface ModelFormProps {
