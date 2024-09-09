@@ -65,6 +65,7 @@ export const fetchModelLinkPreviewBin = async (modelId: string, params: string) 
     };
 };
 
+
 export const validateModelDataParams = async (modelId: string, paramsData: any) => {
     const response = await apiJSONClient.post(`/models/${modelId}/validator`, { ...paramsData });
     console.log("trquest to validation", ...paramsData);
