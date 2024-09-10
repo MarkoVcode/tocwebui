@@ -79,7 +79,7 @@ const ModelPreview: React.FC<ModelPreviewProps> = () => {
             <Button onClick={handleOnClick} >Capture Frame 
                 {process.env.API_URL}
             </Button>
-            <Image src={photo} alt={'Captured Frame'} />
+            {photo && <Image src={photo} alt={'Captured Frame'} />}
         </>
     );
 };
