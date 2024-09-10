@@ -1,6 +1,6 @@
 {
   "name": "tocwebui",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,18 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@jsonforms/core": "^3.3.0",
+    "@jsonforms/react": "^3.3.0",
+    "@jsonforms/vanilla-renderers": "^3.3.0",
+    "@tanstack/react-query": "^5.53.3",
+    "axios": "^1.7.7",
+    "next": "14.2.7",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.7"
+    "react-stl-viewer": "^2.5.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tanstack/eslint-plugin-query": "^5.53.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7"
+    "typescript": "^5"
   }
 }

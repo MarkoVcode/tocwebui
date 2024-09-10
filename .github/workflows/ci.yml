@@ -1,0 +1,14 @@
+name: HotDeployment
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Deployment Hook
+        run: curl -X POST -d {} "${{ secrets.WEBHOOK_TRIGGER_DEVELOP }}"
