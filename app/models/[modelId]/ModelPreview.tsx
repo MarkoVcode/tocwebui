@@ -3,6 +3,7 @@
 import React from 'react';
 import { StlViewer } from "react-stl-viewer";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 import { NextConfig } from 'next';
 
 const url = "https://bvu4yujc2fonmgmjdco6s6aknq0yjjxq.lambda-url.eu-west-2.on.aws/models/0000/preview/NjAuMDs4MC4wOzEwLjA7MjIuMDsxMi4w.stl"
@@ -69,7 +70,7 @@ const ModelPreview: React.FC<ModelPreviewProps> = () => {
                 orbitControls
                 shadows
                 floorProps={floorProps}
-                modelProps={modelProps}
+                modelProps={modelProps as any}
                 showAxes={true}
                 onFinishLoading={onFinishLoading}
                 onError={onError}
@@ -78,7 +79,7 @@ const ModelPreview: React.FC<ModelPreviewProps> = () => {
             <Button onClick={handleOnClick} >Capture Frame 
                 {process.env.API_URL}
             </Button>
-            <img src={photo} />
+            <Image src={photo} alt={'Captured Frame'} />
         </>
     );
 };
