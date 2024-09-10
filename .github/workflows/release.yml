@@ -27,6 +27,11 @@ jobs:
           NEW_VERSION=$(npm version patch -m "Release version %s")
           echo "new_version=$NEW_VERSION" >> $GITHUB_ENV
           echo "tag_name=v$NEW_VERSION" >> $GITHUB_ENV
+      
+      - name: Configure Git
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
 
       - name: Push new version and tag
         env:
