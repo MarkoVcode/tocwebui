@@ -5,15 +5,15 @@ import { StlViewer } from "react-stl-viewer";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
 import { NextConfig } from 'next';
+import { useServiceURLStore } from '@/app/store';
 
-const url = "https://bvu4yujc2fonmgmjdco6s6aknq0yjjxq.lambda-url.eu-west-2.on.aws/models/0000/preview/NjAuMDs4MC4wOzEwLjA7MjIuMDsxMi4w.stl"
+//const url = "https://bvu4yujc2fonmgmjdco6s6aknq0yjjxq.lambda-url.eu-west-2.on.aws/models/0000/preview/NjAuMDs4MC4wOzEwLjA7MjIuMDsxMi4w.stl"
 
 const style = {
     top: 0,
     left: 0,
     height: '81vh',
 }
-
 
 const modRef = (e: any) => {
     console.log(e);
@@ -51,9 +51,11 @@ const onError = (e: any) => {
     console.log("onError", e);
 }
 
-const ModelPreview: React.FC<ModelPreviewProps> = () => {
+const ModelPreview: React.FC<ModelPreviewProps> = ({ modelId, modelLink }) => {
+    const baseUrl = useServiceURLStore(state => state.serviceUrl);
+    console.log("previewURL: " + baseUrl);
     const [photo, setphoto] = React.useState('')
-
+    const url = baseUrl + "/models/" + modelId + "/preview/" + modelLink + ".stl";
     function getFrame() {
         let canvas = document.getElementsByTagName('canvas')[0]
         return canvas.toDataURL()
@@ -79,7 +81,10 @@ const ModelPreview: React.FC<ModelPreviewProps> = () => {
             <Button onClick={handleOnClick} >Capture Frame 
                 {process.env.API_URL}
             </Button>
-            {photo && <Image src={photo} alt={'Captured Frame'} />}
+            {photo && <img
+            src={photo} 
+            alt={'Captured Frame'} 
+            />}
         </>
     );
 };

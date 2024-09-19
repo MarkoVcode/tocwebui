@@ -31,22 +31,22 @@ export const useVersionData = () => {
     });
 };
 
-export const useValidatorData = (modelId: string) => {
+export const useValidatorData = (modelId: string, baseUrl: string) => {
     return useQuery({
         queryKey: ['modelValidator', modelId],
-        queryFn: () => fetchModelValidator(modelId)
+        queryFn: () => fetchModelValidator(modelId, baseUrl)
     });
 };
 
-export const useValidationForData = (modelId: string, params: any) => {
+export const useValidationForData = (modelId: string, baseUrl: string, params: any) => {
     return useMutation({
-        mutationFn: () => validateModelDataParams(modelId, params)
+        mutationFn: () => validateModelDataParams(modelId, baseUrl, params )
     });
 };
 
-export const useModelLinkParams = (modelId: string, linkParams: string) => {
+export const useModelLinkParams = (modelId: string, baseUrl: string, linkParams: string) => {
     return useQuery({
         queryKey: ['modelLinkParams', modelId],
-        queryFn: () => decodeModelLinkParams(modelId, linkParams)
+        queryFn: () => decodeModelLinkParams(modelId, baseUrl, linkParams)
     });
 };
