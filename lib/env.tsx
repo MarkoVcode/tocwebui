@@ -21,7 +21,8 @@ export const getRegistryAPIBaseUrl = () => {
     } else if (isDevelopment()) {   
         return 'https://6mseads5idjvlqo2ec7xoe23y40obchr.lambda-url.us-east-1.on.aws';
     }
-    return 'http://localhost:3005';
+    //return 'http://localhost:3005';
+    return 'https://6mseads5idjvlqo2ec7xoe23y40obchr.lambda-url.us-east-1.on.aws';
     //return 'https://development-api.thingoncloud.com';
 }
 
