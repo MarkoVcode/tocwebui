@@ -77,7 +77,7 @@ const selectData = (data: any, modelPath: string) => {
 }
 
 const ModelForm: React.FC<ModelFormProps> = ({ modelId, setModelLink, setModelParams }) => {
-  const baseUrl = useServiceURLStore(state => state.serviceUrl);
+  const baseUrl = useServiceURLStore((state: any) => state.serviceUrl);
   const [form, setForm] = useState({});
   const [formUI, setFormUI] = useState([]);
   const [formValues, setFormValues] = useState({});
