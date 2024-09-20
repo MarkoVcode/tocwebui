@@ -14,7 +14,7 @@ const style = {
 }
 
 const modRef = (e: any) => {
-    console.log(e);
+ //   console.log(e);
 }
 
 const modelProps = {
@@ -42,7 +42,7 @@ const onClick = (e: any) => {
 }
 
 const onFinishLoading = (e: any) => {
-    console.log("onFinishLoading", e);
+ //   console.log("onFinishLoading", e);
 }
 
 const onError = (e: any) => {
@@ -51,7 +51,6 @@ const onError = (e: any) => {
 
 const ModelPreview: React.FC<ModelPreviewProps> = ({ modelId, modelLink }) => {
     const baseUrl = useServiceURLStore(state => state.serviceUrl);
-    console.log("previewURL: " + baseUrl);
     const [photo, setphoto] = React.useState('')
     const url = baseUrl + "/models/" + modelId + "/preview/" + modelLink + ".stl";
     function getFrame() {

@@ -57,9 +57,7 @@ export const fetchModelData = async (modelId: string) => {
 // THESE ENDPOINTS ARE HAVING DIFFERENT SERVICE ROOT DOMAIN baseUrl
 
 export const fetchModelValidator = async (modelId: string, baseUrl: string) => {
-    console.log("response1111");
     const response = await apiJSONClient(baseUrl).get(`/models/${modelId}/validator`);
-    console.log("response", response);
     return response.data;
 };
 
