@@ -12,14 +12,13 @@ import { useServiceURLStore } from "@/app/store";
 const queryClient = new QueryClient();
 
 export default function Page({ params }: { params: { modelId: string } }) {
-    const [modelLink, setModelLink] = useState('NjAuMDs4MC4wOzEwLjA7MjIuMDsxMi4w');
+    const [modelLink, setModelLink] = useState('');
     const [modelParams, setModelParams] = useState('');
     const setServiceUrl = useServiceURLStore(state => state.setServiceUrl);
     const { data, error, isLoading } = useModelData(params.modelId);
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error loading data</div>;
     if (!isLoading && !error) {
-        console.log(data.serviceUrl);
         setServiceUrl(data.serviceUrl);
     }
 
@@ -31,7 +30,7 @@ export default function Page({ params }: { params: { modelId: string } }) {
                    <ModelForm modelId={data.id} setModelLink={setModelLink} setModelParams={setModelParams} />  
                 </div>
                 <div className="bg-muted rounded-lg overflow-hidden">
-                    <ModelPreview modelId={data.id} modelLink={modelLink} />
+                    {modelLink && <ModelPreview modelId={data.id} modelLink={modelLink} />}
                 </div>
             </div>
             <div className="bg-background border-t px-6 py-4">

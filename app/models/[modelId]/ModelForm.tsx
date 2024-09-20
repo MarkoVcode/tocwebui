@@ -89,6 +89,7 @@ const ModelForm: React.FC<ModelFormProps> = ({ modelId, setModelLink, setModelPa
       setFormValues(selectData(data.formsData, "/models/" + modelId));
       setForm(data.schema);
       setFormUI(data.uischema);
+      setModelLink(data.formsData.objectLink);
     }
   }, [data, modelId]);
 
